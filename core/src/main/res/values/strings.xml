@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="restaurant_description">Restaurant Description</string>
+    <string name="restaurant_address">Restaurant Address</string>
+    <string name="restaurant_rating">Restaurant Rating</string>
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RestoApp</string>
+    <string name="title">Restorants</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="notification">Notification</string>
+    <string name="add_fav">Add Fav</string>
+    <string name="send">Send</string>
+    <string name="search">Search</string>
+    <string name="title_favorite">Favorite</string>
+</resources>

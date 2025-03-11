@@ -8,6 +8,9 @@ import com.example.core.data.local.LocalDataSource
 import com.example.core.data.local.RestaurantDatabase
 import com.example.core.data.remote.RemoteDataSource
 import com.example.core.domain.repository.IRestaurantRepository
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -19,19 +22,28 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<RestaurantDatabase>().restaurantDao() }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("dicoding".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             RestaurantDatabase::class.java, "Restaurant.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
 val networkModule = module {
     single {
+        val hostname = "restaurant-api.dicoding.dev"
+        val certificatePinner = CertificatePinner.Builder()
+            .add(hostname, "sha256/DTfK4/xJroJfN4ZVD29ITgA2f8OWSO6Hm7H9G/sMKdA=")
+            .build()
         OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
+            .certificatePinner(certificatePinner)
             .build()
     }
 

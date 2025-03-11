@@ -71,6 +71,11 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
+    debugImplementation(libs.leakcanary.android)
+
+    implementation("net.zetetic:android-database-sqlcipher:4.5.4")
+    implementation("androidx.sqlite:sqlite-ktx:2.4.0")
+
 //    implementation(libs.glide)
 //    implementation(libs.retrofit)
 //    implementation(libs.converter.gson)

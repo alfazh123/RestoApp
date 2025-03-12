@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
+import android.os.Build.*
 import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
@@ -57,22 +58,20 @@ class AlarmReceiver : BroadcastReceiver() {
         Untuk android Oreo ke atas perlu menambahkan notification channel
         Materi ini akan dibahas lebih lanjut di modul extended
          */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
-            /* Create or update. */
-            val channel = NotificationChannel(
-                channelId,
-                channelName,
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
+        /* Create or update. */
+        val channel = NotificationChannel(
+            channelId,
+            channelName,
+            NotificationManager.IMPORTANCE_DEFAULT
+        )
 
-            channel.enableVibration(true)
-            channel.vibrationPattern = longArrayOf(1000, 1000, 1000, 1000, 1000)
+        channel.enableVibration(true)
+        channel.vibrationPattern = longArrayOf(1000, 1000, 1000, 1000, 1000)
 
-            builder.setChannelId(channelId)
+        builder.setChannelId(channelId)
 
-            notificationManagerCompat.createNotificationChannel(channel)
-        }
+        notificationManagerCompat.createNotificationChannel(channel)
 
         val notification = builder.build()
 

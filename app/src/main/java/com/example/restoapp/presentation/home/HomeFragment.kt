@@ -24,7 +24,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentListRestoBinding
+//    private lateinit var binding: FragmentListRestoBinding
+
+    private var _binding: FragmentListRestoBinding? = null
+
+    private val binding get() = _binding!!
 
     private val homeViewModel: HomeViewModel by viewModel()
 
@@ -33,9 +37,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentListRestoBinding.inflate(inflater, container, false)
+        _binding = FragmentListRestoBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
-        return binding.root
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -133,5 +138,10 @@ class HomeFragment : Fragment() {
                 startActivity(intent)
             }
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

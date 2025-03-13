@@ -91,3 +91,20 @@
 ##---------------Begin: proguard configuration for RxJava  ----------
 # Uncomment if you use RxJava
 #-dontwarn java.util.concurrent.Flow*
+
+# Please add these rules to your existing keep rules in order to suppress warnings.
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn com.example.core.data.Resource$Error
+-dontwarn com.example.core.data.Resource$Loading
+-dontwarn com.example.core.data.Resource$Success
+-dontwarn com.example.core.data.Resource
+-dontwarn com.example.core.di.CoreModuleKt
+-dontwarn com.example.core.domain.model.DetailRestaurant
+-dontwarn com.example.core.domain.model.Restaurant
+-dontwarn com.example.core.domain.repository.IRestaurantRepository
+-dontwarn com.example.core.domain.usecase.RestaurantInteractor
+-dontwarn com.example.core.domain.usecase.RestaurantUseCase
+-dontwarn com.example.core.helper.AlarmReceiver
+-dontwarn com.example.core.ui.RestaurantsAdapter$OnItemClickBack
+-dontwarn com.example.core.ui.RestaurantsAdapter
+-dontwarn com.example.core.ui.ReviewsAdapter

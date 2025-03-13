@@ -3,13 +3,13 @@
     <item
         android:id="@+id/listRestoFragment"
         android:icon="@drawable/resto_check"
-        android:title="Restaurant" />
+        android:title="@string/restaurant" />
     <item
         android:id="@+id/listFavoriteFragment"
         android:icon="@drawable/fav_check"
-        android:title="Favorite" />
+        android:title="@string/favorite" />
     <item
         android:id="@+id/settingFragment"
         android:icon="@drawable/setting_check"
-        android:title="Setting" />
+        android:title="@string/setting" />
 </menu>

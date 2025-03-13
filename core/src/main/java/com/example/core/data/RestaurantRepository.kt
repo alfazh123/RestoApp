@@ -96,16 +96,9 @@ class RestaurantRepository(
 
 
     // store data
-    override fun getThemeSetting(): Flow<Boolean> {
-        return settingPreference.getThemeSetting()
-    }
 
     override fun getDailyReminderSetting(): Flow<Boolean> {
         return settingPreference.getDailyReminderSetting()
-    }
-
-    override suspend fun saveThemeSetting(isDarkModeActive: Boolean) {
-        settingPreference.saveThemeSetting(isDarkModeActive)
     }
 
     override suspend fun saveDailyReminderSetting(isDailyReminderActive: Boolean) {

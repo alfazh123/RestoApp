@@ -15,8 +15,6 @@ interface RestaurantUseCase {
     suspend fun deleteFavoriteRestaurant(restaurant: Restaurant)
 
     // setting
-    fun getThemeSetting(): Flow<Boolean>
     fun getDailyReminderSetting(): Flow<Boolean>
-    suspend fun saveThemeSetting(isDarkModeActive: Boolean)
     suspend fun saveDailyReminderSetting(isDailyReminderActive: Boolean)
 }

@@ -20,6 +20,7 @@
         android:id="@+id/restaurant_image"
         android:layout_width="match_parent"
         android:layout_height="180dp"
+        android:contentDescription="@string/banner_restaurant"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Restaurant Name"
+        android:text=""
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +61,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Restaurant Description"
+        android:text=""
         android:maxLines="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Restaurant Address"
+        android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/restaurant_name" />
 
@@ -84,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Restaurant Rating"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/restaurant_name"
         app:layout_constraintStart_toEndOf="@+id/restaurant_name"
         app:layout_constraintTop_toTopOf="@+id/restaurant_name" />
@@ -95,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:text="Restaurant Comments"
+        android:text=""
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +126,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Restaurant Review" />
+                android:hint="" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/send_button"

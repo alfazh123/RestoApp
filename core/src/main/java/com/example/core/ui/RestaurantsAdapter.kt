@@ -13,13 +13,13 @@ import com.example.core.databinding.RestaurantItemBinding
 import com.example.core.ui.RestaurantsAdapter.RestaurantViewHolder
 
 class RestaurantsAdapter : ListAdapter<Restaurant, RestaurantViewHolder>(DIFF_CALLBACK) {
-    private lateinit var onEventClickCallBack: OnItemClickBack
+    private var onEventClickCallBack: OnItemClickBack? = null
 
     interface OnItemClickBack {
         fun onItemClicked(data: Restaurant)
     }
 
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickBack) {
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickBack?) {
         this.onEventClickCallBack = onItemClickCallback
     }
 
@@ -62,7 +62,7 @@ class RestaurantsAdapter : ListAdapter<Restaurant, RestaurantViewHolder>(DIFF_CA
         holder.bind(getItem(position))
 
         holder.itemView.setOnClickListener {
-            onEventClickCallBack.onItemClicked(getItem(position))
+            onEventClickCallBack?.onItemClicked(getItem(position))
         }
     }
 }

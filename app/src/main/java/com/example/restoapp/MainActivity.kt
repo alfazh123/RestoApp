@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var broadcastReceiver: BroadcastReceiver
 
-    private val viewModel: MainViewModel by viewModel()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,14 +40,6 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, navConfiguratoin)
         navView.setupWithNavController(navController)
-
-        viewModel.getThemeSetting().observe(this) { theme ->
-            if (theme) {
-                delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
-            } else {
-                delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
-            }
-        }
 
     }
 

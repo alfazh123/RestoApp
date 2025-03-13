@@ -35,16 +35,8 @@ class RestaurantInteractor(private val restaurantRepository: IRestaurantReposito
         return restaurantRepository.deleteFavoriteRestaurant(restaurant)
     }
 
-    override fun getThemeSetting(): Flow<Boolean> {
-        return restaurantRepository.getThemeSetting()
-    }
-
     override fun getDailyReminderSetting(): Flow<Boolean> {
         return restaurantRepository.getDailyReminderSetting()
-    }
-
-    override suspend fun saveThemeSetting(isDarkModeActive: Boolean) {
-        return restaurantRepository.saveThemeSetting(isDarkModeActive)
     }
 
     override suspend fun saveDailyReminderSetting(isDailyReminderActive: Boolean) {

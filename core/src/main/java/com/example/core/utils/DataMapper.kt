@@ -15,21 +15,6 @@ import com.example.core.domain.model.MenusDomain
 import com.example.core.domain.model.Restaurant
 
 object DataMapper {
-    fun mapResponseToEntities(input: List<RestaurantsItem>): List<RestaurantEntity> {
-        val restaurantList = ArrayList<RestaurantEntity>()
-        input.map {
-            val restaurant = RestaurantEntity(
-                id = it.id,
-                name = it.name,
-                description = it.description,
-                pictureId = it.pictureId,
-                city = it.city,
-                rating = it.rating
-            )
-            restaurantList.add(restaurant)
-        }
-        return restaurantList
-    }
 
     fun mapEntitiesToDomain(input: List<RestaurantEntity>): List<Restaurant> =
         input.map {

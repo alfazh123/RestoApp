@@ -24,7 +24,7 @@ class ReviewsAdapter: ListAdapter<CustomerReviewsDomain, ViewHolder>(DiffCallbac
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val binding = CommentsItemBinding.bind(itemView)
+        private val binding = CommentsItemBinding.bind(itemView)
         fun bind(comment: CustomerReviewsDomain) {
             with(binding) {
                 commentName.text = comment.name

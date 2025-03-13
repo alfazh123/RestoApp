@@ -1,5 +1,6 @@
 package com.example.restoapp.presentation.detail
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -81,6 +82,7 @@ class DetailRestaurantActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setUi(restaurant: DetailRestaurant) {
         binding.progressBar.visibility = View.GONE
         val layoutManager = LinearLayoutManager(this)

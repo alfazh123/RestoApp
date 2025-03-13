@@ -32,6 +32,8 @@ class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
 
+    private val listRestoAdapter = RestaurantsAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -127,7 +129,6 @@ class HomeFragment : Fragment() {
 
     private fun setList(restaurants: List<Restaurant>) {
 
-        val listRestoAdapter = RestaurantsAdapter()
         listRestoAdapter.submitList(restaurants)
         binding.recyclerView.adapter = listRestoAdapter
 
@@ -140,8 +141,10 @@ class HomeFragment : Fragment() {
         })
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        listRestoAdapter.setOnItemClickCallback(null)
+        binding.recyclerView.adapter = null
         _binding = null
     }
 }

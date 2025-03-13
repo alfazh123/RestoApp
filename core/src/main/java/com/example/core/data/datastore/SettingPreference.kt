@@ -14,24 +14,11 @@ val Context.dataStore : DataStore<Preferences> by preferencesDataStore(name = "s
 
 class SettingPreference (private val dataStore: DataStore<Preferences>){
 
-    private val THEME_KEY = booleanPreferencesKey("theme_setting")
     private val DAILY_REMINDER_KEY = booleanPreferencesKey("daily_reminder_setting")
-
-    fun getThemeSetting(): Flow<Boolean> {
-        return dataStore.data.map { preferences ->
-            preferences[THEME_KEY] ?: false
-        }
-    }
 
     fun getDailyReminderSetting(): Flow<Boolean> {
         return dataStore.data.map { preferences ->
             preferences[DAILY_REMINDER_KEY] ?: false
-        }
-    }
-
-    suspend fun saveThemeSetting(isDarkModeActive: Boolean) {
-        dataStore.edit { preferences ->
-            preferences[THEME_KEY] = isDarkModeActive
         }
     }
 

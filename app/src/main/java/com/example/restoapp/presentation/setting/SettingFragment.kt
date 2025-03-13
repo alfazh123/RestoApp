@@ -54,20 +54,6 @@ class SettingFragment : Fragment() {
             requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
 
-        settingViewModel.getThemeSetting().observe(viewLifecycleOwner) { theme ->
-            if (theme) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                binding.switchDarkMode.isChecked = true
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                binding.switchDarkMode.isChecked = false
-            }
-        }
-
-        binding.switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
-            settingViewModel.saveThemeSetting(isChecked)
-        }
-
         settingViewModel.getDailyReminderSetting().observe(viewLifecycleOwner) { dailyReminderSetting ->
             if (dailyReminderSetting) {
                 binding.switchNotification.isChecked = true
